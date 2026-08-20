@@ -1,14 +1,17 @@
 \begin{frame}
-  \frametitle{Ingresos del GNC \\ \small{Fuente: MHCP}}
+  \frametitle{Ingresos del GNC}
+  \vspace{-0.25cm}
+  {\centering\small\color{blue!70!black}Fuente: MHCP y CARF\par}
+  \vspace{-0.1cm}
   \begin{center}
-    \scalebox{0.75}{
+    \scalebox{0.70}{
       \begin{tikzpicture}
       \begin{axis}[
           width=16.5cm,
           height=9.5cm,
           ylabel={\% PIB},
-          xtick={1,...,22},
-          xticklabels={2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025},
+          xtick={1,...,24},
+          xticklabels={2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027},
           x tick label style={rotate=90, anchor=east},
           ymin=11,
           ymax=17,
@@ -43,6 +46,19 @@
           (15,13.7) (16,14.0) (17,13.1) (18,13.6) (19,14.4) (20,16.6) (21,14.4) (22,14.7)
       };
 
+      % Proyección CARF 2026--2027
+      \addplot[
+          color=blue,
+          mark=*,
+          very thick,
+          densely dotted
+      ] coordinates {
+          (22,14.7) (23,14.4) (24,14.3)
+      };
+
+      \node[anchor=south] at (axis cs:23,14.4) {\scriptsize 14.4};
+      \node[anchor=north] at (axis cs:24,14.3) {\scriptsize 14.3};
+
       % Promedio 2012--2025 (Ingreso Tributario)
       \pgfmathsetmacro{\avgtrib}{14.2142857}
       \addplot[
@@ -51,9 +67,10 @@
           thick
       ] coordinates {(9,\avgtrib) (22,\avgtrib)};
 
-      \legend{Ingreso Tributario, Promedio 2012--2025}
+      \legend{Ingreso tributario, Proyección CARF, Promedio 2012--2025}
       \end{axis}
       \end{tikzpicture}
     }
   \end{center}
+  \note{[Sources] MHCP, serie histórica utilizada en la presentación, 2004--2025. CARF, Informe de análisis técnico al MFMP 2026, cuadros 1 y 5, junio de 2026. Proyecciones de ingreso tributario: 14,4\% del PIB en 2026 y 14,3\% en 2027.}
 \end{frame}

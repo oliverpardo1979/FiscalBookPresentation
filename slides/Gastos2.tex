@@ -1,14 +1,17 @@
 \begin{frame}
-  \frametitle{Gastos del GNC \\ \small{Fuente: MHCP}}
+  \frametitle{Gastos del GNC}
+  \vspace{-0.25cm}
+  {\centering\small\color{blue!70!black}Fuente: MHCP y CARF\par}
+  \vspace{-0.1cm}
   \begin{center}
-    \resizebox{\textwidth}{!}{
+    \resizebox{0.88\textwidth}{!}{
 \begin{tikzpicture}[scale=0.08]
 \begin{axis}[
     width=16.5cm,
     height=9.5cm,
     ylabel={\% PIB},
-    xtick={1,...,22},
-    xticklabels={2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025},
+    xtick={1,...,24},
+    xticklabels={2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027},
     x tick label style={rotate=90, anchor=east},
     ymin=13,
     ymax=21,
@@ -30,6 +33,16 @@
     (17,20.2) (18,19.8) (19,17.2) (20,19.1) (21,18.9) (22,19.9)
 };
 
+% Proyección CARF 2026--2027
+\addplot[
+    color=blue,
+    mark=*,
+    very thick,
+    densely dotted
+] coordinates {
+    (22,19.9) (23,20.1) (24,20.0)
+};
+
 %% Gasto Total
 %\addplot[
 %    color=red,
@@ -41,11 +54,14 @@
 
 % Señalar GP 2019 y GP 2025
 \node[anchor=south west] at (axis cs:16,15.8) {\scriptsize  15.8};
-\node[anchor=south west] at (axis cs:22,19.9) {\scriptsize  19.9};
+\node[anchor=north east] at (axis cs:22,19.9) {\scriptsize  19.9};
+\node[anchor=south] at (axis cs:23,20.1) {\scriptsize  20.1};
+\node[anchor=north] at (axis cs:24,20.0) {\scriptsize  20.0};
 
-\legend{Gasto Primario, Gasto Total}
+\legend{Gasto primario, Proyección CARF}
 \end{axis}
 \end{tikzpicture}
 }
   \end{center}
+  \note{[Sources] MHCP, serie histórica utilizada en la presentación, 2004--2025. CARF, Informe de análisis técnico al MFMP 2026, cuadros 1 y 5, junio de 2026. Proyecciones de gasto primario: 20,1\% del PIB en 2026 y 20,0\% en 2027.}
 \end{frame}
