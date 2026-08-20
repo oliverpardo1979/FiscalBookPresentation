@@ -1,0 +1,276 @@
+\documentclass[aspectratio=169,10pt]{beamer}
+
+
+%%%%%%%%%%%%%%%%% Algunos paquetes especiales %%%%%%%%%%%%%%%%%
+%\usepackage[spanish]{babel}
+\usepackage[main=spanish,locale=US]{babel}
+%\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{siunitx}
+\sisetup{output-decimal-marker = {.}}
+\usepackage{pgf-pie}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage[utf8]{inputenc}
+%\usepackage[latin1]{inputenc}
+%\unaccentedoperators
+\usepackage[nodayofweek,level]{datetime}
+\usepackage{tikz}
+\usepackage{pgfplots}
+    %\pgfplotsset{compat=1.18}
+\usetikzlibrary{positioning} 
+\usepackage{pgfplotstable}
+\usetikzlibrary{patterns, arrows.meta}
+\usepgfplotslibrary{dateplot}
+\usepackage{fancyhdr}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{threeparttablex}
+\usepackage{rotating}
+\usepackage{fontsize}
+  \changefontsize[13.8pt]{12pt}
+\usepackage{gensymb}
+\usepackage{cancel}
+\usepackage{multicol}
+\usepackage{tabulary}
+\usepackage{nccmath}
+\usepackage{chemfig}
+%\usepackage[hyphens]{url}
+\usepackage{float}
+\usepackage[
+  labelfont=bf,
+  singlelinecheck=false,
+  indention=2.4cm,
+  format=plain,
+  parindent=1em,
+  justification=centering
+]{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{array,ragged2e, tabularx}
+\usepackage{tcolorbox}
+\usepackage[export]{adjustbox}
+\usepackage{microtype}
+\usepackage{wasysym}
+\usepackage{colortbl}
+\usepackage{hhline}
+\usepackage{lscape}
+\usetikzlibrary{mindmap}
+\usepackage{enumerate} 
+\usepackage{enumitem} 
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{etoolbox}
+\usepackage{marvosym}
+\usepackage[section]{placeins}
+\usepackage{calc} 
+\usepackage{newfloat}
+\usepackage{lipsum}  
+\usepackage{xcolor}  
+\newcolumntype{P}[1]{>{\raggedRight}p{#1}}
+\usepackage[style=authoryear, citestyle=authoryear]{biblatex}
+\DeclareDelimFormat[nameyeardelim]{nameyeardelim}{\addspace} % Elimina la coma
+%\usepackage[spanish]{babel}
+%\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{xcolor}
+
+
+\usetheme{Singapore}
+\usecolortheme{orchid}
+
+\setbeamertemplate{navigation symbols}{} % Sin íconos de navegación
+\setbeamertemplate{footline}[page number] % Solo número de página en pie
+\setbeamertemplate{headline}{} % Sin barra superior
+
+% Información del título
+\title{\Large El Laberinto Fiscal de Colombia}
+\subtitle{Causas, Riesgos y Salidas a la Crisis Fiscal}
+\author{Oliver Pardo}
+\institute{Director del Centro Javeriano de Competitividad y Profesor Asociado de la Pontificia Universidad Javeriana.}
+\date{Mayo de 2026}
+
+\begin{document}
+
+\input{slides/Cover}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% Una sola vez al inicio: todas las secciones
+\begin{frame}{Contenido}
+  \tableofcontents
+\end{frame}
+
+% Al inicio de cada sección: todas visibles, actual resaltada
+\AtBeginSection[]{
+  \begin{frame}{Contenido}
+    \tableofcontents[sectionstyle=show/shaded, subsectionstyle=show/show/shaded]
+  \end{frame}
+}
+%\section{Presentación}
+%\input{slides/presentacion.tex}
+
+\section{¿Qué tan profundo es el laberinto fiscal?}
+\input{slides/motivacion.tex}
+\input{slides/ajuste.tex}
+
+\section{¿Cómo aumentar los ingresos?}
+\input{slides/Ingresos2.tex}
+\input{slides/estancamiento.tex}
+\input{slides/brecha.tex}
+
+\section{¿Cómo disminuir los gastos?}
+\input{slides/Gastos2.tex}
+\input{slides/DesGasPim.tex}
+\input{slides/DesTrans.tex}
+\input{slides/AjusteGasto.tex}
+
+
+\section{¿Cómo viabilizar las reformas?}
+\input{slides/ComentariosFinales}
+
+%\section{Antecedentes}
+%\input{slides/PIB.tex}
+%\input{slides/Gasto.tex}
+%\input{slides/Ingreso.tex}
+%\input{slides/ingmonth}
+%\input{slides/pf2024}
+%\input{slides/Balance.tex}
+%\input{slides/Deuda.tex}
+%\input{slides/intereses.tex}
+%\input{slides/DesIngreso}
+%\input{slides/des_gasto_2026}
+%\input{slides/des2_gas_2026}
+%%\input{slides/VATRevenue}
+%%\input{slides/GT}
+%%\input{slides/RestoIngresosT}
+%%\input{slides/liquidity}
+%%\input{slides/reservas}
+%\input{slides/conc_ant_agg}
+%%\input{slides/DesGasto}
+%%\input{slides/DesDesGasto}
+%%\input{slides/DesDesGasto2}
+%%\input{slides/BalFEPC}
+%%\input{slides/personal2025}
+%%\input{slides/VF}
+%%\input{slides/concant}
+
+%\section{Perspectivas}
+%%\input{slides/RiesgoPais}
+%%\input{slides/pf2024}
+%%\input{slides/flexsemiflex}
+%%\input{slides/pf2025}
+%%\input{slides/pf2026}
+%\input{slides/debtforecast}
+%\input{slides/balanceforecast}
+%%\input{slides/Tenedores}
+%\input{slides/PuntosConsolidacion}
+
+%\section{Riesgos}
+%\input{slides/Nomina}
+%\input{slides/pension_f}
+%\input{slides/upc}
+%\input{slides/ESGP}
+%\input{slides/aquiles}
+%\input{slides/Riesgos}
+
+%\section{Soluciones}
+%\subsection{Medidas de Gastos}
+%\input{slides/resugasto}
+%\subsection{Medidas de Ingresos}
+%\input{slides/VATRevenue}
+%\input{slides/GT}
+%\input{slides/parataxes}
+%\input{slides/rentPN}
+%\input{slides/RestoIngresosT}
+%\input{slides/resuingreso}
+%%\input{slides/taxpolicies}
+%\subsection{Reformas Institucionales}
+%\include{slides/reformasinst}
+
+%%\subsubsection{Inversión}
+%%\include{slides/solINV}
+%%\subsubsection{FEPC}
+%%\include{slides/solFEPC}
+%%\subsubsection{Pensiones}
+%%\subsubsection{Salud}
+%%\input{slides/solSalud}
+%%\input{slides/solPensiones}
+%%\subsubsection{SGP}
+%%\input{slides/competences}
+%%\input{slides/solSGP}
+%%\input{slides/MasSGP}
+%%\subsubsection{Resumen}
+
+%\section{Comentarios Finales}
+%\include{slides/conclusiones}
+%\input{slides/Tenedores}
+%\include{slides/conclusiones}
+
+\begin{frame}{}
+\begin{columns}[c]
+    \column{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{graficas/Cover.jpg}
+
+    \column{0.55\textwidth}
+    \centering
+    {\Large \textbf{Muchas gracias}}
+
+    \vspace{0.5cm}
+
+    \small
+    Oliver Pardo\\
+    Director, Centro Javeriano de Competitividad\\
+    Profesor Asociado\\
+    Facultad de Ciencias Económicas y Administrativas\\
+    Pontificia Universidad Javeriana
+
+    \vspace{0.5cm}
+
+    \footnotesize
+    pardoo@javeriana.edu.co\\
+    X: @opardor
+\end{columns}
+\end{frame}
+
+%\input{slides/Contacto}
+
+%\input{slides/Cover}
+
+%%\subsection{Medidas de Ingresos}
+%%\input{slides/DesIngreso}
+
+%%\input{slides/etaxrev}
+%%\input{slides/TEVAT}
+
+
+
+%%\input{slides/personal2025}
+%%\input{slides/VF}
+%%\input{slides/RiesgoPais}
+%\input{slides/pf2024}
+%\input{slides/liquidity}
+%\input{slides/reservas}
+%\input{slides/flexsemiflex}
+%%\input{slides/reservas}
+%%\input{slides/cash}
+%\input{slides/pf2025}
+%\input{slides/pf2026}
+%\input{slides/Tenedores}
+%\input{slides/VFforecast}
+%\input{slides/CITrate}
+%\input{slides/TECIT}
+
+
+
+
+
+
+\end{document}

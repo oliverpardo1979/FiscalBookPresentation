@@ -1,0 +1,91 @@
+\begin{frame}
+
+\frametitle{Deuda Neta del GNC \\ \small{Fuente: MHCP - Cálculos Propios.}}
+
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=12cm, height=7.5cm,
+    ylabel={\% PIB},
+    ymin=25, ymax=75,
+    xmin=1999, xmax=2026, % extendido hasta 2026
+    xtick={1999,2001,...,2026}, % mostrar todos los ticks
+    xticklabel style={rotate=90,anchor=east,/pgf/number format/.cd,1000 sep={},fixed,precision=0},
+    scaled x ticks=false,
+    yticklabel style={font=\tiny},
+    ylabel style={font=\small},
+    grid=both,
+    grid style=dashed,
+    minor y tick num=1,    
+    legend style={at={(0.02,0.96)}, anchor=north west, font=\footnotesize, fill=none, draw=none},
+    tick style={thin},
+    scaled y ticks=false,
+    y tick label style={
+        /pgf/number format/.cd,
+        use period,
+        1000 sep={}
+    }
+]
+
+% Serie de deuda (histórico + proyección)
+\addplot[dotted, thick, blue, mark=*] table [row sep=crcr] {
+1999 27.81072274 \\
+2000 34.86638249 \\
+2001 37.96293129 \\
+2002 45.11098557 \\
+2003 44.77327082 \\
+2004 41.00413656 \\
+2005 40.44297265 \\
+2006 38.21961319 \\
+2007 35.74718648 \\
+2008 35.26112974 \\
+2009 36.54701602 \\
+2010 36.9931066 \\
+2011 34.39514942 \\
+2012 33.16828394 \\
+2013 34.18757347 \\
+2014 36.70888496 \\
+2015 41.77236929 \\
+2016 43.167005 \\
+2017 43.78554157 \\
+2018 46.34371284 \\
+2019 48.38488116 \\
+2020 60.65239624 \\
+2021 60.04873665 \\
+2022 57.60327227 \\
+2023 53.43060577 \\
+2024 59.30508886 \\
+%2025 61.7 \\
+%2026 63.5 \\
+};
+\addlegendentry{Deuda}
+
+% Promedio 1999–2019
+\addplot[thick, red] coordinates {(1999,38.9) (2019,38.9)};
+\addlegendentry{Promedio 1999–2019}
+
+% Ancla
+\addplot[dashed, black] coordinates {(2022,55) (2026,55)};
+\addlegendentry{Ancla}
+
+% Límite
+\addplot[dotted, thick, gray] coordinates {(2022,71) (2026,71)};
+\addlegendentry{L\'{i}mite}
+
+% Línea punteada para proyecciones
+\addplot[color=blue!60!black, dashed] coordinates {
+    (2024,59.30508886) (2025,62.9) (2026,67.5)
+};
+
+% Puntos grises de proyección
+\addplot[color=gray, mark=*, only marks] coordinates {
+    (2025,62.9) (2026,67.5)
+};
+
+\end{axis}
+\end{tikzpicture}
+
+%\vspace{0.2cm}
+%{\footnotesize\textit{Fuente: Elaboración propia con base en el saldo de la deuda del GNC, Ministerio de Hacienda.}}
+
+\end{frame}

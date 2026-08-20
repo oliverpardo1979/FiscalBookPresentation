@@ -1,0 +1,60 @@
+\begin{frame}[fragile]
+
+\frametitle{Pago de intereses del GNC \\ \small{MHCP - CARF}}
+
+\begin{figure}[h!]
+\centering
+\label{fig:Intereses}
+\begin{tikzpicture}
+\begin{axis}[
+    width=11.5cm, height=7.0cm,
+    ylabel={\% PIB},
+    ymin=2, ymax=5,
+    xmin=2011, xmax=2026,
+    xtick={2011,...,2026},
+    xticklabel style={
+        rotate=90, anchor=east,
+        /pgf/number format/.cd,
+        use period,
+        1000 sep={},
+        fixed
+    }, % <-- rotación + formato SOLO para X
+    grid=major,
+    legend style={at={(0.5,-0.14)}, anchor=north, legend columns=-1},
+    legend cell align={left}
+]
+
+% Intereses (histórico)
+\addplot[solid, thick, blue, mark=*] table {
+2011 2.713678894
+2012 2.558460496
+2013 2.291506951
+2014 2.225634705
+2015 2.565679095
+2016 2.938439479
+2017 2.891665921
+2018 2.781357961
+2019 2.905510743
+2020 2.837994172
+2021 3.326883193
+2022 4.29753116
+2023 3.909045017
+2024 4.351706393
+};
+
+% Proyección (línea punteada)
+\addplot[color=blue!60!black, dashed] coordinates {
+    (2024,4.351706393) (2025,3.2) (2026,4.1)
+};
+
+% Puntos grises de proyección
+\addplot[color=gray, mark=*, only marks] coordinates {
+    (2025,3.2) (2026,4.1)
+};
+
+%\legend{Histórico, Proyección}
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\end{frame}

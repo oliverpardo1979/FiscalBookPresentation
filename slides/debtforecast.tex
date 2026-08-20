@@ -1,0 +1,57 @@
+% =========================
+% Slide 1: Deuda Neta GNC
+% =========================
+\begin{frame}{Proyecciones de Deuda Neta del GNC}
+\begin{figure}
+\centering
+\caption{Proyecciones de Deuda Neta del GNC}
+\label{fig:consolida}
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.8\textwidth, height=0.45\textwidth,
+    ylabel={Deuda (\% del PIB)},
+    xmin=2019, xmax=2036,
+    ymin=45, ymax=100,
+    xtick={2019,2021,...,2036},
+    xticklabel style={rotate=90,anchor=east,/pgf/number format/.cd,1000 sep={},fixed,precision=0},
+    scaled x ticks=false,
+    ytick={50,55,...,100},
+    grid=major,
+    legend pos=north west,
+    legend style={font=\scriptsize}
+]
+
+% MFMP 2025
+\addplot[color=blue, thick] coordinates {
+  (2019,48.4) (2020,60.7) (2021,60.0) (2022,57.6) (2023,53.4)
+  (2024,59.3) (2025,61.3) (2026,63.0) (2027,63.7) (2028,63.4)
+  (2029,63.2) (2030,62.8) (2031,62.3) (2032,62.0) (2033,61.7)
+  (2034,61.5) (2035,61.4) (2036,61.3)
+};
+\addlegendentry{MFMP 2025}
+
+% Actualización
+\addplot[color=red, thick, dashed] coordinates {
+  (2019,48.4) (2020,60.7) (2021,60.0) (2022,57.6) (2023,53.4)
+  (2024,59.3) (2025,62.9) (2026,67.5) (2027,70.9) (2028,74.3)
+  (2029,77.7) (2030,80.9) (2031,84.1) (2032,87.2) (2033,90.3)
+  (2034,93.2) (2035,96.1) (2036,99.0)
+};
+\addlegendentry{Inercial}
+
+% Consolidación
+\addplot[mark=triangle*, color=gray, thick, dotted] coordinates {
+  (2019,48.4) (2020,60.7) (2021,60.0) (2022,57.6) (2023,53.4)
+  (2024,59.3) (2025,62.9) (2026,67.5) (2027,69.3) (2028,68.4)
+  (2029,67.5) (2030,66.7) (2031,66.0) (2032,65.3) (2033,64.7)
+  (2034,64.2) (2035,63.7) (2036,63.2)
+};
+\addlegendentry{Consolidaci\'on}
+
+\end{axis}
+\end{tikzpicture}
+
+\vspace{0.1cm}
+%\footnotesize\textit{Fuente: Elaboración propia con base en MFMP 2024, Balance General del GNC y Deuda del GNC, Ministerio de Hacienda.}
+\end{figure}
+\end{frame}

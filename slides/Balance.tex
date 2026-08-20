@@ -1,0 +1,86 @@
+\begin{frame}
+  \frametitle{Balance del GNC \\ \small{Fuente: MHCP - Cálculos - CARF.}}
+  \begin{center}
+    \resizebox{\textwidth}{!}{
+\begin{tikzpicture}[scale=0.04]
+\begin{axis}[
+    width=15cm,
+    height=10cm,
+    ylabel={\% PIB},
+    % ticks manuales para incluir 2025 y 2026
+    xtick={7,...,22},
+    xticklabels={2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026},
+    x tick label style={rotate=90, anchor=east},
+    ymin=-9,
+    ymax=1,
+    ymajorgrids=true,
+    grid style=dashed,
+    minor y tick num=1,
+    ytick={-8.5,-8,...,1}, % define ticks cada 0.5
+    % Alternativamente: ytick distance=0.5,
+    legend style={at={(0.2,0.2)}, anchor=south},
+    thick
+]
+
+% Balance Total (histórico)
+\addplot[
+    color=red,
+    mark=square*,
+    dashed
+] coordinates {
+    (7,-2.8) (8,-2.3) (9,-2.3) (10,-2.4) (11,-3.0) 
+    (12,-4.0) (13,-3.7) (14,-3.1) (15,-2.5) (16,-7.8) 
+    (17,-7.0) (18,-5.3) (19,-4.3) (20,-6.8)
+};
+
+% Balance Primario (histórico)
+\addplot[
+    color=blue,
+    mark=*,
+    very thick
+] coordinates {
+    (7,-0.1) (8,0.2) (9,0.0) (10,-0.2) (11,-0.5) 
+    (12,-1.1) (13,-0.8) (14,-0.3) (15,0.4) (16,-5.0) 
+    (17,-3.6) (18,-1.0) (19,-0.3) (20,-2.4)
+};
+
+% Proyecciones Balance Total (línea punteada)
+\addplot[
+    color=blue!60!black,
+    dashed
+] coordinates {
+    (20,-6.8) (21,-6.2) (22,-8.0)
+};
+
+% Proyecciones Balance Primario (línea punteada)
+\addplot[
+    color=red!60!black,
+    dashed
+] coordinates {
+    (20,-2.4) (21,-3.0) (22,-3.9)
+};
+
+% Puntos grises Balance Total
+\addplot[
+    color=gray,
+    mark=*,
+    only marks
+] coordinates {
+    (21,-6.2) (22,-8.0)
+};
+
+% Puntos grises Balance Primario
+\addplot[
+    color=gray,
+    mark=square*,
+    only marks
+] coordinates {
+    (21,-3.0) (22,-3.9)
+};
+
+\legend{Balance Total, Balance Primario, Proy. Total, Proy. Primario}
+\end{axis}
+\end{tikzpicture}
+}
+  \end{center}
+\end{frame}
