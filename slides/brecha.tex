@@ -10,20 +10,36 @@
 \begin{frame}
 \begin{table}[htbp]
 \centering
-\caption{Evasión, gasto tributario y recaudo por tipo de impuesto (\% del PIB)}
+\caption{Evasión y gasto tributario por tipo de impuesto}
 \label{tab:brecha_recaudo}
-\begin{tabular}{lccc}
+\small
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccc}
 \toprule
-Concepto & IVA & Renta jurídicas & Renta naturales \\
+& \shortstack{Recaudo\\(2025)}
+& \multicolumn{2}{c}{Evasión (2019)}
+& \multicolumn{2}{c}{Gasto tributario (2023)} \\
+\cmidrule(lr){2-2}\cmidrule(lr){3-4}\cmidrule(lr){5-6}
+Impuesto & \% del PIB & \% del PIB & \% del recaudo$^{*}$
+         & \% del PIB & \% del recaudo$^{*}$ \\
 \midrule
-Evasión (2019)          & 1,8 & 5,7 & 1,1 \\
-Gasto tributario (2023) & 5,6 & 1,3 & 1,6 \\
-Recaudo (2025)          & 5,3 & 6,0 & 1,5 \\
+IVA & 5,3 & 1,8 & 34\% & 5,6 & 106\% \\
+\shortstack[l]{Renta de personas\\jurídicas} & 6,0 & 5,7 & 95\% & 1,3 & 22\% \\
+\shortstack[l]{Renta de personas\\naturales} & 1,5 & 1,1 & 73\% & 1,6 & 107\% \\
 \bottomrule
-\end{tabular}
-\vspace{0.3cm}
-\par\footnotesize{\textit{Fuentes: Evasión con base en Lora et. al. (2021). Gasto tributario con base en MFMP 2025. Recaudo con cálculos propios a partir del Balance del GNC del Ministerio de Hacienda.}}
+\end{tabular}%
+}
+\vspace{0.25cm}
+
+\par\scriptsize{$^{*}$ Cociente entre la evasión o el gasto tributario y el recaudo de 2025. Como las estimaciones corresponden a años distintos, el porcentaje muestra un orden de magnitud y no una comparación para un mismo año.}
+
+\vspace{0.12cm}
+\par\scriptsize{\textit{Fuentes: Evasión con base en Lora et al. (2021). Gasto tributario con base en MFMP 2025. Recaudo con cálculos propios a partir del Balance del GNC del Ministerio de Hacienda.}}
 \end{table}
+
+\note{[Sources] Evasión: Lora et al. (2021), estimaciones para 2019. Gasto tributario: Marco Fiscal de Mediano Plazo 2025, cifras para 2023. Recaudo: cálculos propios a partir del Balance del GNC del Ministerio de Hacienda, cifras para 2025. Los porcentajes del recaudo se calculan como evasión o gasto tributario dividido por el recaudo de 2025.}
 
 \end{frame}
 
