@@ -30,7 +30,7 @@
 
 \addplot[red,thick,dashed,mark=square*,mark size=1.5pt,restrict x to domain=2025:2035]
     table[col sep=comma,x=year,y=deuda_actualizacion]{datos/escenarios_4_1_4_2.csv};
-\addlegendentry{Actualización}
+\addlegendentry{Inercial}
 
 % Hasta 2027, la consolidación coincide con la actualización.
 \addplot[gray!80!black,thick,dotted,mark=triangle*,mark size=2pt,
@@ -51,5 +51,5 @@
 \par\vspace{0.05cm}
 {\scriptsize Fuente: MHCP y cálculos propios.}\par
 {\scriptsize Escenarios desde 2027: $r=5\%$ y $g=3\%$. La consolidación comienza en 2028.}
-\note{[Sources] Figuras.xlsx, hoja 4.1, B2:R5; supuestos en J7:R9. MHCP: deuda neta del GNC; cálculos propios para actualización y consolidación. Las proyecciones actualizadas comienzan en 2026. Desde 2027, deuda/PIB = ((1+r)/(1+g)) por la deuda/PIB del año anterior menos el balance primario del año, con r=5\% y g=3\%. El balance primario proviene de la hoja 4.2. Actualización y consolidación coinciden hasta 2027. En 2035: actualización, 107,5794\%; consolidación, 65,5608\%. Ancla: 55\%; límite: 71\%, referencias conservadas de la figura anterior.}
+\note{[Sources] Figuras.xlsx, hoja 4.1, B2:R5; supuestos en J7:R9. Inercial corresponde a Actualización en el Excel. MHCP: deuda neta del GNC; cálculos propios para los escenarios inercial y de consolidación. Las proyecciones comienzan en 2026. Desde 2027, deuda/PIB = ((1+r)/(1+g)) por la deuda/PIB del año anterior menos el balance primario del año, con r=5\% y g=3\%. El balance primario proviene de la hoja 4.2. Inercial y consolidación coinciden hasta 2027. En 2035: inercial, 107,5794\%; consolidación, 65,5608\%. Ancla: 55\%; límite: 71\%, referencias conservadas de la figura anterior.}
 \end{frame}
