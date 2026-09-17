@@ -1,86 +1,98 @@
-\begin{frame}
-  \frametitle{Balance del GNC \\ \small{Fuente: MHCP - Cálculos - CARF.}}
-  \begin{center}
-    \resizebox{\textwidth}{!}{
-\begin{tikzpicture}[scale=0.04]
+\begin{frame}[t]
+\frametitle{Balance primario del GNC}
+
+\centering
+{\small\color{blue!70!black}Fuente: MHCP y cálculos propios\par}
+\vspace{0.2cm}
+\begin{tikzpicture}
 \begin{axis}[
-    width=15cm,
-    height=10cm,
-    ylabel={\% PIB},
-    % ticks manuales para incluir 2025 y 2026
-    xtick={7,...,22},
-    xticklabels={2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026},
-    x tick label style={rotate=90, anchor=east},
-    ymin=-9,
-    ymax=1,
-    ymajorgrids=true,
+    width=12.5cm, height=5.2cm,
+    ylabel={\% del PIB},
+    xmin=2019, xmax=2035,
+    ymin=-5.5, ymax=2,
+    xtick={2019,2021,...,2035},
+    xticklabel style={rotate=90,anchor=east,/pgf/number format/.cd,1000 sep={},fixed,precision=0},
+    scaled x ticks=false,
+    scaled y ticks=false,
+    ytick={-5,-4,...,2},
+    tick label style={font=\small},
+    ylabel style={font=\small},
+    grid=major,
     grid style=dashed,
-    minor y tick num=1,
-    ytick={-8.5,-8,...,1}, % define ticks cada 0.5
-    % Alternativamente: ytick distance=0.5,
-    legend style={at={(0.2,0.2)}, anchor=south},
-    thick
+    legend style={at={(0.5,1.02)}, anchor=south, legend columns=3, font=\small, draw=none, fill=none},
+    legend cell align=left
 ]
 
-% Balance Total (histórico)
-\addplot[
-    color=red,
-    mark=square*,
-    dashed
-] coordinates {
-    (7,-2.8) (8,-2.3) (9,-2.3) (10,-2.4) (11,-3.0) 
-    (12,-4.0) (13,-3.7) (14,-3.1) (15,-2.5) (16,-7.8) 
-    (17,-7.0) (18,-5.3) (19,-4.3) (20,-6.8)
+% MFMP
+\addplot[blue, very thick, mark=none] coordinates {
+    (2019,0.4)
+    (2020,-4.9)
+    (2021,-3.7)
+    (2022,-1)
+    (2023,-0.4)
+    (2024,-0.8)
+    (2025,-0.5)
+    (2026,-0.2)
+    (2027,0.2)
+    (2028,0.5)
+    (2029,0.6)
+    (2030,0.8)
+    (2031,0.6)
+    (2032,0.7)
+    (2033,0.7)
+    (2034,0.6)
+    (2035,0.5)
 };
+\addlegendentry{MFMP}
 
-% Balance Primario (histórico)
-\addplot[
-    color=blue,
-    mark=*,
-    very thick
-] coordinates {
-    (7,-0.1) (8,0.2) (9,0.0) (10,-0.2) (11,-0.5) 
-    (12,-1.1) (13,-0.8) (14,-0.3) (15,0.4) (16,-5.0) 
-    (17,-3.6) (18,-1.0) (19,-0.3) (20,-2.4)
+% Actualización
+\addplot[red, thick, dashed, mark=none] coordinates {
+    (2019,0.448259105264)
+    (2020,-4.950256462957)
+    (2021,-3.644991814951)
+    (2022,-0.979875506563)
+    (2023,-0.343875418705)
+    (2024,-2.361646272935)
+    (2025,-3.545012092036)
+    (2026,-3.3)
+    (2027,-4.5)
+    (2028,-4)
+    (2029,-3.9)
+    (2030,-3.8)
+    (2031,-3.7)
+    (2032,-3.6)
+    (2033,-3.5)
+    (2034,-3.4)
+    (2035,-3.3)
 };
+\addlegendentry{Actualización}
 
-% Proyecciones Balance Total (línea punteada)
-\addplot[
-    color=blue!60!black,
-    dashed
-] coordinates {
-    (20,-6.8) (21,-6.2) (22,-8.0)
+% Consolidación
+\addplot[gray!80!black, thick, dotted, mark=triangle*, mark size=1.5pt] coordinates {
+    (2019,0.448259105264)
+    (2020,-4.950256462957)
+    (2021,-3.644991814951)
+    (2022,-0.979875506563)
+    (2023,-0.343875418705)
+    (2024,-2.361646272935)
+    (2025,-3.545012092036)
+    (2026,-3.3)
+    (2027,-4.5)
+    (2028,1.235922330097)
+    (2029,1.239241210293)
+    (2030,1.242292646745)
+    (2031,1.245098190745)
+    (2032,1.247677656928)
+    (2033,1.250049263214)
+    (2034,1.25222975948)
+    (2035,1.254234545852)
 };
+\addlegendentry{Consolidación}
 
-% Proyecciones Balance Primario (línea punteada)
-\addplot[
-    color=red!60!black,
-    dashed
-] coordinates {
-    (20,-2.4) (21,-3.0) (22,-3.9)
-};
-
-% Puntos grises Balance Total
-\addplot[
-    color=gray,
-    mark=*,
-    only marks
-] coordinates {
-    (21,-6.2) (22,-8.0)
-};
-
-% Puntos grises Balance Primario
-\addplot[
-    color=gray,
-    mark=square*,
-    only marks
-] coordinates {
-    (21,-3.0) (22,-3.9)
-};
-
-\legend{Balance Total, Balance Primario, Proy. Total, Proy. Primario}
 \end{axis}
 \end{tikzpicture}
-}
-  \end{center}
+
+\vspace{0.1cm}
+{\scriptsize Actualización y Consolidación: proyecciones propias desde 2027, con $r=5\%$ y $g=3\%$.\par}
+\note{[Sources] Figuras.xlsx, hoja 4.2, B2:R5, versión del 17 de septiembre de 2026. Series: MFMP, Actualización y Consolidación, 2019--2035, en porcentaje del PIB. Los escenarios Actualización y Consolidación utilizan proyecciones propias desde 2027. Los supuestos de las hojas 4.1 y 4.2 son r=5\% y g=3\%.}
 \end{frame}
