@@ -1,5 +1,5 @@
 \begin{frame}[t]
-\frametitle{Balance primario del GNC}
+\frametitle{Balance del GNC}
 
 \centering
 {\small\color{blue!70!black}Fuente: MHCP y cálculos propios\par}
@@ -8,45 +8,51 @@
 \begin{axis}[
     width=12.5cm, height=5.2cm,
     ylabel={\% del PIB},
-    xmin=2019, xmax=2035,
-    ymin=-5.5, ymax=2,
-    xtick={2019,2021,...,2035},
+    xmin=2011, xmax=2027,
+    ymin=-10, ymax=1,
+    xtick={2011,2012,...,2027},
     xticklabel style={rotate=90,anchor=east,/pgf/number format/.cd,1000 sep={},fixed,precision=0},
     scaled x ticks=false,
     scaled y ticks=false,
-    ytick={-5,-4,...,2},
+    ytick={-10,-9,...,1},
     tick label style={font=\small},
     ylabel style={font=\small},
     grid=major,
     grid style=dashed,
-    legend style={at={(0.5,1.02)}, anchor=south, legend columns=3, font=\small, draw=none, fill=none},
+    legend style={at={(0.5,1.02)}, anchor=south, legend columns=2, font=\small, draw=none, fill=none},
     legend cell align=left
 ]
 
-% MFMP
-\addplot[blue, very thick, mark=none] coordinates {
-    (2019,0.4)
-    (2020,-4.9)
-    (2021,-3.7)
-    (2022,-1)
-    (2023,-0.4)
-    (2024,-0.8)
-    (2025,-0.5)
-    (2026,-0.2)
-    (2027,0.2)
-    (2028,0.5)
-    (2029,0.6)
-    (2030,0.8)
-    (2031,0.6)
-    (2032,0.7)
-    (2033,0.7)
-    (2034,0.6)
-    (2035,0.5)
+% Balance total, 2011--2025
+\addplot[red, thick, mark=square*, mark size=1.5pt] coordinates {
+    (2011,-2.828187579108)
+    (2012,-2.316514744871)
+    (2013,-2.331002797793)
+    (2014,-2.406139599789)
+    (2015,-3.015846864486)
+    (2016,-4.04330349393)
+    (2017,-3.654185677084)
+    (2018,-3.069053994966)
+    (2019,-2.457251637534)
+    (2020,-7.788250635035)
+    (2021,-6.971875007722)
+    (2022,-5.273643973597)
+    (2023,-4.223061232501)
+    (2024,-6.710484245022)
+    (2025,-6.354401832105)
 };
-\addlegendentry{MFMP}
+\addlegendentry{Balance total}
 
-% Actualización
-\addplot[red, thick, dashed, mark=none] coordinates {
+% Balance primario, 2011--2025
+\addplot[blue, very thick, mark=*, mark size=1.5pt] coordinates {
+    (2011,-0.114508684913)
+    (2012,0.241945750707)
+    (2013,-0.039495846708)
+    (2014,-0.180504894994)
+    (2015,-0.450167769226)
+    (2016,-1.104864015368)
+    (2017,-0.76251975604)
+    (2018,-0.287696033539)
     (2019,0.448259105264)
     (2020,-4.950256462957)
     (2021,-3.644991814951)
@@ -54,45 +60,25 @@
     (2023,-0.343875418705)
     (2024,-2.361646272935)
     (2025,-3.545012092036)
-    (2026,-3.3)
-    (2027,-4.5)
-    (2028,-4)
-    (2029,-3.9)
-    (2030,-3.8)
-    (2031,-3.7)
-    (2032,-3.6)
-    (2033,-3.5)
-    (2034,-3.4)
-    (2035,-3.3)
 };
-\addlegendentry{Actualización}
+\addlegendentry{Balance primario}
 
-% Consolidación
-\addplot[gray!80!black, thick, dotted, mark=triangle*, mark size=1.5pt] coordinates {
-    (2019,0.448259105264)
-    (2020,-4.950256462957)
-    (2021,-3.644991814951)
-    (2022,-0.979875506563)
-    (2023,-0.343875418705)
-    (2024,-2.361646272935)
+% Proyecciones 2026--2027, conectadas con 2025
+\addplot[red, thick, dashed, mark=square*, mark size=1.5pt, forget plot] coordinates {
+    (2025,-6.354401832105)
+    (2026,-7.1)
+    (2027,-9.4)
+};
+\addplot[blue, very thick, dashed, mark=*, mark size=1.5pt, forget plot] coordinates {
     (2025,-3.545012092036)
     (2026,-3.3)
     (2027,-4.5)
-    (2028,1.235922330097)
-    (2029,1.239241210293)
-    (2030,1.242292646745)
-    (2031,1.245098190745)
-    (2032,1.247677656928)
-    (2033,1.250049263214)
-    (2034,1.25222975948)
-    (2035,1.254234545852)
 };
-\addlegendentry{Consolidación}
 
 \end{axis}
 \end{tikzpicture}
 
 \vspace{0.1cm}
-{\scriptsize Actualización y Consolidación: proyecciones propias desde 2027, con $r=5\%$ y $g=3\%$.\par}
-\note{[Sources] Figuras.xlsx, hoja 4.2, B2:R5, versión del 17 de septiembre de 2026. Series: MFMP, Actualización y Consolidación, 2019--2035, en porcentaje del PIB. Los escenarios Actualización y Consolidación utilizan proyecciones propias desde 2027. Los supuestos de las hojas 4.1 y 4.2 son r=5\% y g=3\%.}
+{\scriptsize Líneas discontinuas: proyecciones para 2026 y 2027.\par}
+\note{[Sources] Figuras.xlsx, hoja 1.4, B1:R3, versión del 17 de septiembre de 2026. Series: Balance\_Total y Balance\_Primario, 2011--2027, en porcentaje del PIB. Las líneas discontinuas corresponden a 2026 y 2027. La serie del balance primario coincide con Actualización y Consolidación de la hoja 4.2 hasta 2027.}
 \end{frame}
