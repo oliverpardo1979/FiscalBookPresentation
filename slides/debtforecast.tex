@@ -1,57 +1,61 @@
-% =========================
-% Slide 1: Deuda Neta GNC
-% =========================
-\begin{frame}{Proyecciones de Deuda Neta del GNC}
-\begin{figure}
+\begin{frame}
+\frametitle{Deuda neta del GNC}
 \centering
-\caption{Proyecciones de Deuda Neta del GNC}
-\label{fig:consolida}
 \begin{tikzpicture}
 \begin{axis}[
-    width=0.8\textwidth, height=0.45\textwidth,
-    ylabel={Deuda (\% del PIB)},
-    xmin=2019, xmax=2036,
-    ymin=45, ymax=100,
-    xtick={2019,2021,...,2036},
-    xticklabel style={rotate=90,anchor=east,/pgf/number format/.cd,1000 sep={},fixed,precision=0},
+    width=12.6cm, height=5.7cm,
+    clip=false,
+    ylabel={\% del PIB},
+    xmin=2019, xmax=2035.25,
+    xtick={2019,2021,...,2035},
+    xticklabel style={/pgf/number format/.cd,1000 sep={},fixed,precision=0},
     scaled x ticks=false,
-    ytick={50,55,...,100},
-    grid=major,
-    legend pos=north west,
-    legend style={font=\scriptsize}
+    scaled y ticks=false,
+    tick label style={font=\footnotesize},
+    ylabel style={font=\small},
+    ymajorgrids=true,
+    grid style={dashed,black!20},
+    unbounded coords=discard,
+    filter discard warning=false,
+    legend style={at={(0.5,1.035)},anchor=south,legend columns=4,
+                  font=\scriptsize,draw=none,fill=none},
+    legend cell align=left,
+    ymin=40, ymax=115,
+    ytick={40,50,...,110}
 ]
 
-% MFMP 2025
-\addplot[color=blue, thick] coordinates {
-  (2019,48.4) (2020,60.7) (2021,60.0) (2022,57.6) (2023,53.4)
-  (2024,59.3) (2025,61.3) (2026,63.0) (2027,63.7) (2028,63.4)
-  (2029,63.2) (2030,62.8) (2031,62.3) (2032,62.0) (2033,61.7)
-  (2034,61.5) (2035,61.4) (2036,61.3)
-};
-\addlegendentry{MFMP 2025}
+\addplot[black,thick,mark=*,mark size=1.5pt,restrict x to domain=2019:2025]
+    table[col sep=comma,x=year,y=deuda_actualizacion]{datos/escenarios_4_1_4_2.csv};
+\addlegendentry{Histórico}
 
-% Actualización
-\addplot[color=red, thick, dashed] coordinates {
-  (2019,48.4) (2020,60.7) (2021,60.0) (2022,57.6) (2023,53.4)
-  (2024,59.3) (2025,62.9) (2026,67.5) (2027,70.9) (2028,74.3)
-  (2029,77.7) (2030,80.9) (2031,84.1) (2032,87.2) (2033,90.3)
-  (2034,93.2) (2035,96.1) (2036,99.0)
-};
-\addlegendentry{Inercial}
+% El MFMP 2024 proyecta desde 2024; punto de enlace de 2023.
+\addplot[blue,thick,dashed,mark=none,restrict x to domain=2023:2035]
+    table[col sep=comma,x=year,y=deuda_mfmp2024]{datos/escenarios_4_1_4_2.csv};
+\addlegendentry{MFMP 2024}
 
-% Consolidación
-\addplot[mark=triangle*, color=gray, thick, dotted] coordinates {
-  (2019,48.4) (2020,60.7) (2021,60.0) (2022,57.6) (2023,53.4)
-  (2024,59.3) (2025,62.9) (2026,67.5) (2027,69.3) (2028,68.4)
-  (2029,67.5) (2030,66.7) (2031,66.0) (2032,65.3) (2033,64.7)
-  (2034,64.2) (2035,63.7) (2036,63.2)
-};
-\addlegendentry{Consolidaci\'on}
+\addplot[red,thick,dashed,mark=square*,mark size=1.5pt,restrict x to domain=2025:2035]
+    table[col sep=comma,x=year,y=deuda_actualizacion]{datos/escenarios_4_1_4_2.csv};
+\addlegendentry{Actualización}
 
+% Hasta 2027, la consolidación coincide con la actualización.
+\addplot[gray!80!black,thick,dotted,mark=triangle*,mark size=2pt,
+         restrict x to domain=2027:2035]
+    table[col sep=comma,x=year,y=deuda_consolidacion]{datos/escenarios_4_1_4_2.csv};
+\addlegendentry{Consolidación}
+
+\addplot[black!55,thin,dashed,forget plot] coordinates {(2022,55) (2035,55)};
+\node[anchor=north west,font=\scriptsize,text=black!65] at (axis cs:2028,55) {Ancla: 55\%};
+\addplot[black!55,thin,dotted,forget plot] coordinates {(2022,71) (2035,71)};
+\node[anchor=south west,font=\scriptsize,text=black!65] at (axis cs:2022,71) {Límite: 71\%};
+
+\node[anchor=west,font=\footnotesize,text=red] at (axis cs:2035.5,107.579448737) {107,6};
+\node[anchor=west,font=\footnotesize,text=gray!80!black] at (axis cs:2035.5,65.5607778148) {65,6};
+\node[anchor=south west,font=\footnotesize,text=blue] at (axis cs:2035.5,55.4) {55,4};
 \end{axis}
 \end{tikzpicture}
 
-\vspace{0.1cm}
-%\footnotesize\textit{Fuente: Elaboración propia con base en MFMP 2024, Balance General del GNC y Deuda del GNC, Ministerio de Hacienda.}
-\end{figure}
+\par\vspace{0.05cm}
+{\scriptsize Fuente: MHCP y cálculos propios.}\par
+{\scriptsize Escenarios desde 2027: $r=5\%$ y $g=3\%$. La consolidación comienza en 2028.}
+\note{[Sources] Figuras.xlsx, hoja 4.1, B2:R5; supuestos en J7:R9. MHCP: deuda neta del GNC y MFMP 2024; cálculos propios para actualización y consolidación. El MFMP 2024 proyecta desde 2024; las proyecciones actualizadas comienzan en 2026. Desde 2027, deuda/PIB = ((1+r)/(1+g)) por la deuda/PIB del año anterior menos el balance primario del año, con r=5\% y g=3\%. El balance primario proviene de la hoja 4.2. Actualización y consolidación coinciden hasta 2027. En 2035: MFMP 2024, 55,4\% del PIB; actualización, 107,5794\%; consolidación, 65,5608\%. Ancla: 55\%; límite: 71\%, referencias conservadas de la figura anterior.}
 \end{frame}

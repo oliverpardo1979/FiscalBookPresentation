@@ -1,0 +1,21 @@
+{
+  "source": "Figuras.xlsx",
+  "source_sha256": "d0ffb4298b25508d4315e62ed70cd5d7066a5978ef9e8d57a59d55312de5a929",
+  "source_modified_utc": "2026-09-17T22:50:17.577000+00:00",
+  "units": "porcentaje del PIB",
+  "ranges": {
+    "deuda": "4.1!B2:R5",
+    "balance_primario": "4.2!B2:R5"
+  },
+  "mfmp_vintage": 2024,
+  "historical_through": 2025,
+  "forecast_from": 2026,
+  "source_values": "Valores guardados en Excel; no se recalculan vinculos externos",
+  "forecast_assumptions": {
+    "r": 0.05,
+    "g": 0.03,
+    "consolidation_from": 2028,
+    "primary_balance_rule": "0.2 + 0.1 * (deuda del ano anterior - 55)"
+  },
+  "excluded": "Celdas S:T de 4.2 sin encabezados de ano"
+}
