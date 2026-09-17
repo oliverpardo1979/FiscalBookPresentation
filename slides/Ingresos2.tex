@@ -1,7 +1,7 @@
 \begin{frame}
-  \frametitle{Ingresos del GNC}
-  \vspace{-0.25cm}
-  {\centering\small\color{blue!70!black}Fuente: MHCP y CARF\par}
+  \frametitle{Ingresos tributarios del GNC}
+  \vspace{0.05cm}
+  {\centering\small\color{blue!70!black}Fuente: MHCP y cálculos propios\par}
   \vspace{-0.1cm}
   \begin{center}
     \scalebox{0.70}{
@@ -41,36 +41,41 @@
           very thick,
           blue
       ] coordinates {
-          (1,12.1) (2,12.5) (3,13.4) (4,13.5) (5,13.5) (6,13.0) (7,12.3)
-          (8,13.5) (9,14.3) (10,14.1) (11,14.2) (12,14.5) (13,13.6) (14,13.8)
-          (15,13.7) (16,14.0) (17,13.1) (18,13.6) (19,14.4) (20,16.6) (21,14.4) (22,14.7)
+          (1,12.143374781333) (2,12.512922935182) (3,13.422519626341)
+          (4,13.504136808694) (5,13.502896432021) (6,12.998278577445)
+          (7,12.274640215080) (8,13.538733320074) (9,14.274306787792)
+          (10,14.112999163893) (11,14.201344469556) (12,14.465553461687)
+          (13,13.583123624578) (14,13.792707184015) (15,13.685807298757)
+          (16,14.000802323615) (17,13.096318634224) (18,13.602505788695)
+          (19,14.411093615786) (20,16.609633331004) (21,14.360250034683)
+          (22,14.667199811906)
       };
 
-      % Proyección CARF 2026--2027
+      % Proyección MHCP 2026--2027, hoja 1.3 de Figuras.xlsx
       \addplot[
           color=blue,
           mark=*,
           very thick,
           densely dotted
       ] coordinates {
-          (22,14.7) (23,14.4) (24,14.3)
+          (22,14.667199811906) (23,14.5) (24,14.0)
       };
 
-      \node[anchor=south] at (axis cs:23,14.4) {\scriptsize 14.4};
-      \node[anchor=north] at (axis cs:24,14.3) {\scriptsize 14.3};
+      \node[anchor=south] at (axis cs:23,14.5) {\scriptsize 14,5};
+      \node[anchor=north] at (axis cs:24,14.0) {\scriptsize 14,0};
 
       % Promedio 2012--2025 (Ingreso Tributario)
-      \pgfmathsetmacro{\avgtrib}{14.2142857}
+      \pgfmathsetmacro{\avgtrib}{14.204546109299}
       \addplot[
           red,
           dashed,
           thick
       ] coordinates {(9,\avgtrib) (22,\avgtrib)};
 
-      \legend{Ingreso tributario, Proyección CARF, Promedio 2012--2025}
+      \legend{Ingreso tributario, Proyección 2026--2027, Promedio 2012--2025}
       \end{axis}
       \end{tikzpicture}
     }
   \end{center}
-  \note{[Sources] MHCP, serie histórica utilizada en la presentación, 2004--2025. CARF, Informe de análisis técnico al MFMP 2026, cuadros 1 y 5, junio de 2026. Proyecciones de ingreso tributario: 14,4\% del PIB en 2026 y 14,3\% en 2027.}
+  \note{[Sources] Figuras.xlsx, hoja 1.3, B1:Y1 y B3:Y4, versión del 17 de septiembre de 2026. Fuente indicada en el Excel: MHCP. Ingreso tributario del GNC, 2004--2027, en porcentaje del PIB. Las proyecciones para 2026 y 2027 son 14,5\% y 14,0\% del PIB, respectivamente. La línea discontinua conecta las proyecciones con el dato de 2025. Promedio aritmético de 2012--2025, calculado con los valores sin redondear de J3:W3: 14,204546109299\% del PIB.}
 \end{frame}
